@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-06-12T13:27:11Z" product-name="tw_glossary">
+		<header/>
+		<body>
+			<trans-unit id="tx_twglossary_domain_model_entry">
+				<source>Eintrag</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.title">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.image">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.similar_entries">
+				<source>Ähnliche Einträge</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.first_character">
+				<source>Alternativer Buchstabe</source>
+			</trans-unit>
+			<trans-unit id="tx_tw_glossary_glossary.name">
+				<source>Glossar</source>
+			</trans-unit>
+			<trans-unit id="tx_tw_glossary_glossary.description">
+				<source></source>
+			</trans-unit>
+            <trans-unit id="tx_twglossary_domain_model_entrygroup">
+                <source>Zeichengruppe</source>
+            </trans-unit>
+            <trans-unit id="tx_twglossary_domain_model_entrygroup.character">
+                <source>Zeichen</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,30 @@
+<f:comment><!--
+
+    Renders entry item in list view
+
+    @param entries            Entry
+
+--></f:comment>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+	<f:section name="content">
+
+        <f:render partial="Entrygroup/FilterMenu" arguments="{entrygroups:entrygroups}" />
+
+        <f:if condition="{sortedByEntrygroup}">
+            <f:then>
+                <f:for each="{sortedByEntrygroup}" as="entries" key="group">
+                    <div>{group}</div>
+                    <f:render partial="Entry/Item" arguments="{entries:entries}" />
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:render partial="Entry/Item" arguments="{entries:entries}" />
+            </f:else>
+        </f:if>
+	</f:section>
+
+</html>
+
+

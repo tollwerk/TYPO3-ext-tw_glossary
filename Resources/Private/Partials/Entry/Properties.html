@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="glossary_singleview">
+        <h2>{entry.title}</h2>
+        <div class="description">
+            {entry.description -> f:format.html()}
+        </div>
+
+        <f:if condition="{entry.image}">
+            <f:image image="{entry.image}" maxWidth="150"/>
+        </f:if>
+
+        <f:if condition="{entry.similarEntries}">
+        <ul>
+            <h3><f:translate key="glossary.link.similar_entries" /></h3>
+            <f:for each="{entry.similarEntries}" as="similarEntry">
+                <li><f:link.action action="show" arguments="{entry : similarEntry}"> {similarEntry.title}</f:link.action></li>
+            </f:for>
+        </ul>
+        </f:if>
+    </div>
+</html>

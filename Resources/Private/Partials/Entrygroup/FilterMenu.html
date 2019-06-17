@@ -1,0 +1,31 @@
+<f:comment><!--
+
+    Menu for Entrygroups with filter function
+
+    @param entrygroups            Entrygroups
+
+--></f:comment>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div>
+    <f:if condition="{entrygroups}">
+        <ul>
+            <li style="display: inline-table; padding-right: 10px;"><f:link.action action="list" arguments="{filter:NULL}"><f:translate key="glossary.filtermenu.all_entries" /></f:link.action></li>
+            <f:if condition="{entriesEmptyFirstCharacter}">
+                <f:then>
+                    <li style="display: inline-table; padding-right: 10px;"><f:link.action action="list" arguments="{filter:0}"><f:translate key="glossary.filtermenu.no_relation" /></f:link.action></li>
+                </f:then>
+                <f:else>
+                    <li style="display: inline-table; padding-right: 10px;"><f:translate key="glossary.filtermenu.no_relation" /></li>
+                </f:else>
+            </f:if>
+            <f:for each="{entrygroups}" as="entrygroup">
+                <li style="display: inline-table; padding-right: 10px;">
+                    <f:if condition="{entrygroup.countEntries}">
+                        <f:then><f:link.action action="list" arguments="{filter:entrygroup.uid}">{entrygroup.character}</f:link.action></f:then>
+                        <f:else>{entrygroup.character}</f:else>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </f:if>
+</div>

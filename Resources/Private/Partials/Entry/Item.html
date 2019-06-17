@@ -1,0 +1,16 @@
+<f:comment><!--
+
+    Renders entry item in list view
+
+    @param entries            Entry
+
+--></f:comment>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{entries}">
+    <ul>
+        <f:for each="{entries}" as="entry">
+            <li><f:link.action action="show" arguments="{entry : entry}"> {entry.title}</f:link.action></li>
+        </f:for>
+    </ul>
+</f:if>

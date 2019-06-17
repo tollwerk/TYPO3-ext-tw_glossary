@@ -1,0 +1,24 @@
+{
+    "name": "tollwerk/tw-glossary",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [],
+    "version": "1.0.0",
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tollwerk\\TwGlossary\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tollwerk\\TwGlossary\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "tw_glossary": "self.version",
+        "typo3-ter/tw-glossary": "self.version"
+    }
+}

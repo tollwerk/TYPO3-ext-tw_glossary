@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-06-12T13:27:11Z" product-name="tw_glossary">
+		<header/>
+		<body>
+			<trans-unit id="tx_twglossary_domain_model_entry">
+				<source>Entry</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.similar_entries">
+				<source>Similar Entries</source>
+			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.first_character">
+				<source>First Character</source>
+			</trans-unit>
+            <trans-unit id="tx_twglossary_domain_model_entrygroup">
+                <source>Zeichengruppe</source>
+            </trans-unit>
+            <trans-unit id="glossary.link.back">
+                <source>Zurück zur Übersicht</source>
+            </trans-unit>
+            <trans-unit id="glossary.link.similar_entries">
+                <source>Siehe auch:</source>
+            </trans-unit>
+            <trans-unit id="glossary.filtermenu.no_relation">
+                <source>Keine Zuordnung</source>
+            </trans-unit>
+            <trans-unit id="glossary.filtermenu.all_entries">
+                <source>Alle</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

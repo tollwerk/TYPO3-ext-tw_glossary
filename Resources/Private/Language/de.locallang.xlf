@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-06-12T13:27:11Z" product-name="tw_glossary">
+		<header/>
+		<body>
+			<trans-unit id="tx_twglossary_domain_model_entry" approved="yes">
+				<source>Entry</source> <target state="translated">Eintrag</target></trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.title" approved="yes">
+				<source>Title</source> <target state="translated">Titel</target></trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.description" approved="yes">
+				<source>Description</source> <target state="translated">Beschreibung</target></trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.image" approved="yes">
+				<source>Image</source> <target state="translated">Bild</target></trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.similar_entries" approved="yes">
+				<source>Similar Entries</source> <target state="translated">Ähnliche Einträge</target></trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.first_character" approved="yes">
+				<source>First Character</source> <target state="translated">Erstes Zeichen</target></trans-unit>
+		</body>
+	</file>
+</xliff>
