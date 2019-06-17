@@ -10,17 +10,16 @@
 
 	<f:section name="content">
 
-        <f:render partial="Entrygroup/FilterMenu" arguments="{entrygroups:entrygroups}" />
-
+        <f:render partial="Entrygroup/FilterMenu" arguments="{entrygroups:entrygroups, entriesEmptyFirstCharacter:entriesEmptyFirstCharacter}" />
         <f:if condition="{sortedByEntrygroup}">
             <f:then>
                 <f:for each="{sortedByEntrygroup}" as="entries" key="group">
                     <div>{group}</div>
-                    <f:render partial="Entry/Item" arguments="{entries:entries}" />
+                    <f:render partial="Entry/Item" arguments="{entries:entries, filter:filter}" />
                 </f:for>
             </f:then>
             <f:else>
-                <f:render partial="Entry/Item" arguments="{entries:entries}" />
+                <f:render partial="Entry/Item" arguments="{entries:entries, filter:filter}" />
             </f:else>
         </f:if>
 	</f:section>

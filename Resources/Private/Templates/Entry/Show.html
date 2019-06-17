@@ -14,6 +14,6 @@
 
 	<f:section name="content">
 		<f:render partial="Entry/Properties" arguments="{entry:entry}" />
-		<f:link.action action="list" arguments="{filter:entry.firstCharacter}" ><f:translate key="glossary.link.back" /></f:link.action><br />
+		<f:link.action action="list" arguments="{filter:entry.firstCharacter, filter:filter}" ><f:translate key="glossary.link.back" /></f:link.action><br />
 	</f:section>
 </html>

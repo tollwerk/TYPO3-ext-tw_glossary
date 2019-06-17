@@ -10,7 +10,7 @@
 <f:if condition="{entries}">
     <ul>
         <f:for each="{entries}" as="entry">
-            <li><f:link.action action="show" arguments="{entry : entry}"> {entry.title}</f:link.action></li>
+            <li><f:link.action action="show" arguments="{entry : entry, filter:filter}"> {entry.title}</f:link.action></li>
         </f:for>
     </ul>
 </f:if>

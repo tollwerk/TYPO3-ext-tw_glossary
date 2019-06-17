@@ -10,6 +10,7 @@
     <f:if condition="{entrygroups}">
         <ul>
             <li style="display: inline-table; padding-right: 10px;"><f:link.action action="list" arguments="{filter:NULL}"><f:translate key="glossary.filtermenu.all_entries" /></f:link.action></li>
+
             <f:if condition="{entriesEmptyFirstCharacter}">
                 <f:then>
                     <li style="display: inline-table; padding-right: 10px;"><f:link.action action="list" arguments="{filter:0}"><f:translate key="glossary.filtermenu.no_relation" /></f:link.action></li>

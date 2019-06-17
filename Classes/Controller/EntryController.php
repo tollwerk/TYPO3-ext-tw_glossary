@@ -38,6 +38,7 @@ use Tollwerk\TwGlossary\Domain\Repository\EntrygroupRepository;
 use Tollwerk\TwGlossary\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * EntryController
@@ -113,9 +114,11 @@ class EntryController extends ActionController
      * action show
      *
      * @param Entry $entry
+     * @param string $filter
      */
-    public function showAction(Entry $entry): void
+    public function showAction(Entry $entry, string $filter = null): void
     {
         $this->view->assign('entry', $entry);
+        $this->view->assign('filter', $filter);
     }
 }
