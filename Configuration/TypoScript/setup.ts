@@ -24,4 +24,9 @@ plugin.tx_twglossary {
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
     }
+
+    settings {
+        detailPid = {$plugin.tx_twglossary_glossary.persistence.detailPid}
+        listPid = {$plugin.tx_twglossary_glossary.persistence.listPid}
+    }
 }

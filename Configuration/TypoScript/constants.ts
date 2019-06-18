@@ -13,5 +13,7 @@ plugin.tx_twglossary_glossary {
         storagePid =
         # cat=plugin.tx_twglossary_glossary//a; type=string; label=Single view PID
         detailPid =
+        # cat=plugin.tx_twglossary_glossary//a; type=string; label=List view PID
+        listPid =
     }
 }
