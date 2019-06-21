@@ -30,3 +30,15 @@ plugin.tx_twglossary {
         listPid = {$plugin.tx_twglossary_glossary.persistence.listPid}
     }
 }
+
+# CUSTOM LINKS
+config.recordLinks.glossary {
+    typolink {
+        parameter = {$plugin.tx_twglossary_glossary.persistence.detailPid}  specialLink
+        additionalParams {
+            data = field:uid
+            wrap = &tx_twglossary_glossary[controller]=Entry&tx_twglossary_glossary[action]=show&tx_twglossary_glossary[entry]=|
+        }
+        useCacheHash = 1
+    }
+}

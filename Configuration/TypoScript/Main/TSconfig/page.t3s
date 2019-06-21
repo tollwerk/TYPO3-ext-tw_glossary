@@ -1,0 +1,9 @@
+TCEMAIN.linkHandler.glossary {
+    handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+    label = Glossar
+    configuration {
+        table = tx_twglossary_domain_model_entry
+        storagePid = 61
+    }
+    scanBefore = page
+}

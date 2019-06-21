@@ -11,7 +11,7 @@ call_user_func(
             'Glossary'
         );
         
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('tw_glossary', 'Configuration/TypoScript', 'tollwerk Glossary');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('tw_glossary', 'Configuration/TypoScript/Static', 'tollwerk Glossary');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_twglossary_domain_model_entry', 'EXT:tw_glossary/Resources/Private/Language/locallang_csh_tx_twglossary_domain_model_entry.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_twglossary_domain_model_entry');
     }
