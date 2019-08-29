@@ -30,7 +30,9 @@
 
 namespace Tollwerk\TwGlossary\Domain\Repository;
 
+use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -59,11 +61,37 @@ class EntryRepository extends Repository
         return $query->execute();
     }
 
-    public function findAllByEmptyFirstCharacter():int
+    /**
+     * Find Entries with relation 0
+     *
+     * @return array|QueryResultInterface
+     * @throws InvalidQueryException
+     */
+    public function findAllByEmptyFirstCharacter(): ?QueryResultInterface
     {
         $query = $this->createQuery();
         $query->matching($query->equals('firstCharacter', 0));
 
-        return $query->count();
+        return $query->execute();
+    }
+
+    /**
+     * get entry by title
+     *
+     * @param string $title title
+     *
+     * @return array|\Tollwerk\TwGlossary\Domain\Model\Entry
+     * @throws InvalidQueryException
+     */
+    public function findByTitle(string $title): ?\Tollwerk\TwGlossary\Domain\Model\Entry
+    {
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $querySettings->setRespectStoragePage(false);
+        $this->setDefaultQuerySettings($querySettings);
+
+        $query = $this->createQuery();
+        $query->matching($query->equals('title', $title));
+
+        return $query->execute()->getFirst();
     }
 }

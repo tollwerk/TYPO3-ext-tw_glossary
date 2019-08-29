@@ -15,6 +15,7 @@ return [
             'disabled'  => 'hidden',
         ],
         'searchFields'             => 'title,description,similar_entries,first_character',
+        'iconfile'                 => 'EXT:tw_glossary/Resources/Public/Icons/Backend/tx_twglossary_domain_model_entry.svg',
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, image, similar_entries, first_character',

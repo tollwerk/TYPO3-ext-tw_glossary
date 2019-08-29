@@ -14,7 +14,7 @@ call_user_func(
         );
 
         // wizards
-        /*
+
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             'mod {
                 wizards.newContentElement.wizardItems.plugins {
@@ -33,7 +33,7 @@ call_user_func(
                 }
            }'
         );
-        */
+
 
         $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
         $iconRegistry->registerIcon(

@@ -10,6 +10,7 @@ return [
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
         'searchFields'             => 'character',
+        'iconfile'                 => 'EXT:tw_glossary/Resources/Public/Icons/Backend/tx_twglossary_domain_model_entrygroup.svg',
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden, character',

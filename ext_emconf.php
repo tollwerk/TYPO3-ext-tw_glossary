@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'tollwerk Glossary',
-    'description' => '',
+    'description' => 'Add a glossary, create new entrys and entry groups for a filter function',
     'category' => 'plugin',
     'author' => 'Jolanta Dworczyk',
     'author_email' => 'jolanta@tollwerk.de',
