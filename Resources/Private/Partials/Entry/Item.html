@@ -8,9 +8,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <f:if condition="{entries}">
-    <ul>
+    <ul class="Glossary__items">
         <f:for each="{entries}" as="entry">
-            <li><f:link.action action="show" pageUid="{settings.detailPid}" arguments="{entry : entry, filter:filter}"> {entry.title}</f:link.action></li>
+            <li class="Glossary__item"><f:link.action class="Glossary__link" action="show" pageUid="{settings.detailPid}" arguments="{entry : entry, filter:filter}"> {entry.title}</f:link.action></li>
         </f:for>
     </ul>
 </f:if>
