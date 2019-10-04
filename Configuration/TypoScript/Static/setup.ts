@@ -34,6 +34,7 @@ plugin.tx_twglossary {
 # CUSTOM LINKS
 config.recordLinks.glossary {
     typolink {
+
         parameter = {$plugin.tx_twglossary_glossary.persistence.detailPid} - Glossary__link
         additionalParams {
             data = field:uid

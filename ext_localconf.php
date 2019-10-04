@@ -9,7 +9,7 @@ call_user_func(
             'Tollwerk.TwGlossary',
             'Glossary',
             [
-                'Entry' => 'list, show',
+                'Entry' => 'list, show, sitemap',
             ]
         );
 

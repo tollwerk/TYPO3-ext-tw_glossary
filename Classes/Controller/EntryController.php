@@ -121,4 +121,14 @@ class EntryController extends ActionController
         $this->view->assign('entry', $entry);
         $this->view->assign('filter', $filter);
     }
+
+    /**
+     * test action, for sitemap configuration
+     *
+     * Sitemap action
+     */
+    public function sitemapAction(): void
+    {
+        $this->view->assign('entries', $this->entryRepository->findAll());
+    }
 }

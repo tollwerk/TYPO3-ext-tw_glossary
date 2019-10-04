@@ -1,0 +1,5 @@
+
+<f:for each="{entries}" as="entry">
+    <f:link.action action="show" controller="Entry" pluginName="Glossary" extensionName="TwGlossary"
+                   pageUid="62" arguments="{entry: entry}">{entry.title}</f:link.action>
+</f:for>
