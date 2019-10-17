@@ -33,6 +33,7 @@ namespace Tollwerk\TwGlossary\Domain\Repository;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -45,6 +46,10 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  */
 class EntryRepository extends Repository
 {
+    protected $defaultOrderings = [
+        'title' => QueryInterface::ORDER_ASCENDING,
+    ];
+
     /**
      * Find Entries by first character
      *

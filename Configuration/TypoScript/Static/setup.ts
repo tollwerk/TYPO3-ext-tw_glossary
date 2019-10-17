@@ -28,6 +28,8 @@ plugin.tx_twglossary {
     settings {
         detailPid = {$plugin.tx_twglossary_glossary.persistence.detailPid}
         listPid = {$plugin.tx_twglossary_glossary.persistence.listPid}
+        enableGrouping = {$plugin.tx_twglossary_glossary.settings.enableGrouping}
+        showFirstEntry = {$plugin.tx_twglossary_glossary.settings.showFirstEntry}
     }
 }
 

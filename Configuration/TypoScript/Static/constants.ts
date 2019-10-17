@@ -9,11 +9,20 @@ plugin.tx_twglossary_glossary {
         layoutRootPath = EXT:tw_glossary/Resources/Private/Layouts/
     }
     persistence {
-        # cat=plugin.tx_twglossary_glossary//a; type=string; label=Default storage PID
+        # cat=plugin.tx_twglossary_glossary//000; type=string; label=Default storage PID
         storagePid =
-        # cat=plugin.tx_twglossary_glossary//a; type=string; label=Single view PID
+        # cat=plugin.tx_twglossary_glossary//010; type=string; label=Single view PID
         detailPid =
-        # cat=plugin.tx_twglossary_glossary//a; type=string; label=List view PID
+        # cat=plugin.tx_twglossary_glossary//011; type=string; label=List view PID
         listPid =
+
+    }
+
+    settings {
+        # cat=plugin.tx_twglossary_glossary//010; type=string; label=Enable grouping
+        enableGrouping = 1
+
+        # cat=plugin.tx_twglossary_glossary//020; type=string; label=Show first entry
+        showFirstEntry = 0
     }
 }

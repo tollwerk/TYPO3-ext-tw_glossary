@@ -34,6 +34,7 @@
 namespace Tollwerk\TwGlossary\Controller;
 
 use Tollwerk\TwGlossary\Domain\Model\Entry;
+use Tollwerk\TwGlossary\Domain\Model\EntryInterface;
 use Tollwerk\TwGlossary\Domain\Repository\EntrygroupRepository;
 use Tollwerk\TwGlossary\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -83,40 +84,57 @@ class EntryController extends ActionController
      * action list
      *
      * @param string $filter
+     * @param Tollwerk\TwGlossary\Domain\Model\Entry $entry
      *
      * @return void
      * @throws InvalidQueryException
      */
-    public function listAction(string $filter = null): void
+    public function listAction(string $filter = null, $entry = null): void
     {
         $entrygroups         = $this->entrygroupRepository->findAllEntrygroups();
         $emptyFirstCharacter = $this->entryRepository->findAllByEmptyFirstCharacter();
-
         $entries            = [];
         $sortedByEntrygroup = [];
 
-        if ($filter !== null) {
-            $entries = $this->entryRepository->findByFilter($filter);
+        // Get entries by group or as a simple list
+        if(!$this->settings['enableGrouping']){
+            /** @var TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $entries */
+            $entries = $this->entryRepository->findAll();
+            // Show first entry?
+            if(!$entry){
+                if(isset($this->settings['showFirstEntry']) && $entries->count()){
+                    $entry = $entries->getFirst();
+                    $entries->rewind();
+                }
+            }
         } else {
-            foreach ($entrygroups as $entrygroup) {
-                $sortedByEntrygroup[$entrygroup['character']] = $this->entryRepository->findByFilter($entrygroup['uid']);
+            if ($filter !== null) {
+                $entries = $this->entryRepository->findByFilter($filter);
+            } else {
+                foreach ($entrygroups as $entrygroup) {
+                    $sortedByEntrygroup[$entrygroup['character']] = $this->entryRepository->findByFilter($entrygroup['uid']);
+                }
             }
         }
+
+
+
 
         $this->view->assign('entries', $entries);
         $this->view->assign('sortedByEntrygroup', $sortedByEntrygroup);
         $this->view->assign('entrygroups', $entrygroups);
         $this->view->assign('entriesEmptyFirstCharacter', $emptyFirstCharacter);
         $this->view->assign('filter', $filter);
+        $this->view->assign('entry', $entry);
     }
 
     /**
-     * action show
+     * Show a single glossary entry
      *
-     * @param Entry $entry
-     * @param string $filter
+     * @param \Tollwerk\TwGlossary\Domain\Model\Entry $entry
+     * @param string|null $filter
      */
-    public function showAction(Entry $entry, string $filter = null): void
+    public function showAction(EntryInterface $entry, string $filter = null): void
     {
         $this->view->assign('entry', $entry);
         $this->view->assign('filter', $filter);

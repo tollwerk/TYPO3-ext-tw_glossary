@@ -9,6 +9,7 @@
     <f:layout name="Default" />
 
 	<f:section name="content">
+        <f:debug>{_all}</f:debug>
 
         <f:render partial="Entrygroup/FilterMenu" arguments="{entrygroups:entrygroups, entriesEmptyFirstCharacter:entriesEmptyFirstCharacter}" />
         <f:if condition="{sortedByEntrygroup}">

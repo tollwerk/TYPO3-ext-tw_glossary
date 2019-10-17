@@ -42,7 +42,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * @package    Tollwerk\TwGlossary
  * @subpackage Tollwerk\TwGlossary\Domain\Model
  */
-class Entry extends AbstractEntity
+class Entry extends AbstractEntity implements EntryInterface
 {
     /**
      * title

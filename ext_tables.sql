@@ -2,12 +2,13 @@
 # Table structure for table 'tx_twglossary_domain_model_entry'
 #
 CREATE TABLE tx_twglossary_domain_model_entry (
-
 	title varchar(255) DEFAULT '' NOT NULL,
 	description text,
 	image int(11) DEFAULT '0' NOT NULL,
 	similar_entries varchar(255) DEFAULT '' NOT NULL,
 	first_character varchar(255) DEFAULT '0' NOT NULL,
+    starttime        INT(11) UNSIGNED    DEFAULT '0' NOT NULL,
+    endtime          INT(11) UNSIGNED    DEFAULT '0' NOT NULL
 );
 
 #
