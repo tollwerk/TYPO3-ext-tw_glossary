@@ -52,6 +52,11 @@ class Entry extends AbstractEntity implements EntryInterface
     protected $title = '';
 
     /**
+     * @var string
+     */
+    protected $slug = '';
+
+    /**
      * description
      * 
      * @var string
@@ -98,6 +103,22 @@ class Entry extends AbstractEntity implements EntryInterface
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
 
     /**

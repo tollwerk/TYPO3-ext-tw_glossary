@@ -9,6 +9,9 @@
 			<trans-unit id="tx_twglossary_domain_model_entry.title">
 				<source>Titel</source>
 			</trans-unit>
+			<trans-unit id="tx_twglossary_domain_model_entry.slug">
+				<source>Speaking URL</source>
+			</trans-unit>
 			<trans-unit id="tx_twglossary_domain_model_entry.description">
 				<source>Beschreibung</source>
 			</trans-unit>

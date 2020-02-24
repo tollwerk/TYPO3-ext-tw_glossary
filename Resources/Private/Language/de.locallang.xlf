@@ -7,6 +7,10 @@
 				<source>Entry</source> <target state="translated">Eintrag</target></trans-unit>
 			<trans-unit id="tx_twglossary_domain_model_entry.title" approved="yes">
 				<source>Title</source> <target state="translated">Titel</target></trans-unit>
+            <trans-unit id="tx_twglossary_domain_model_entry.slug">
+                <source>Speaking URL</source>
+                <target>Sprechende URL</target>
+            </trans-unit>
 			<trans-unit id="tx_twglossary_domain_model_entry.description" approved="yes">
 				<source>Description</source> <target state="translated">Beschreibung</target></trans-unit>
 			<trans-unit id="tx_twglossary_domain_model_entry.image" approved="yes">

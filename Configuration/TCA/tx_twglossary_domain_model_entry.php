@@ -21,7 +21,7 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, image, similar_entries, first_character',
     ],
     'types'     => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;entry_title, description, image, similar_entries, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;entry_title, slug, description, image, similar_entries, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes'  => [
         'entry_title' => ['showitem' => 'title, first_character'],
@@ -124,6 +124,26 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
+            ],
+        ],
+        'slug'                            => [
+            'exclude' => true,
+            'label'   => 'LLL:EXT:tw_glossary/Resources/Private/Language/locallang_db.xlf:tx_twglossary_domain_model_entry.slug',
+            'config'  => [
+                'type'              => 'slug',
+                'generatorOptions'  => [
+                    'fields'               => ['title'],
+                    'fieldSeparator'       => '-',
+                    'replacements'         => [
+                        '/' => '-',
+                        '.' => '-',
+                        ',' => '-',
+                    ],
+                    'prefixParentPageSlug' => false,
+                ],
+                'prependSlash'      => false,
+                'fallbackCharacter' => '-',
+                'eval'              => 'uniqueInSite',
             ],
         ],
         'description'     => [

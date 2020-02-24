@@ -8,7 +8,8 @@ CREATE TABLE tx_twglossary_domain_model_entry (
 	similar_entries varchar(255) DEFAULT '' NOT NULL,
 	first_character varchar(255) DEFAULT '0' NOT NULL,
     starttime        INT(11) UNSIGNED    DEFAULT '0' NOT NULL,
-    endtime          INT(11) UNSIGNED    DEFAULT '0' NOT NULL
+    endtime          INT(11) UNSIGNED    DEFAULT '0' NOT NULL,
+    slug            VARCHAR(255)        DEFAULT NULL
 );
 
 #

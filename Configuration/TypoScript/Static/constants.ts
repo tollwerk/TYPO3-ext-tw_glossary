@@ -19,10 +19,11 @@ plugin.tx_twglossary_glossary {
     }
 
     settings {
-        # cat=plugin.tx_twglossary_glossary//010; type=string; label=Enable grouping
+        # cat=plugin.tx_twglossary_glossary//010; type=boolean; label=Enable grouping
         enableGrouping = 1
-
-        # cat=plugin.tx_twglossary_glossary//020; type=string; label=Show first entry
+        # cat=plugin.tx_twglossary_glossary//010; type=boolean; label=Show first group
+        showFirstGroup = 1
+        # cat=plugin.tx_twglossary_glossary//020; type=boolean; label=Show first entry
         showFirstEntry = 0
     }
 }

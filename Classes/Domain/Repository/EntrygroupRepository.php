@@ -32,6 +32,7 @@
 
 namespace Tollwerk\TwGlossary\Domain\Repository;
 
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -57,7 +58,12 @@ class EntrygroupRepository extends Repository
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
                                       ->getQueryBuilderForTable('tx_twglossary_domain_model_entrygroup');
+
         $queryBuilder->getRestrictions()->removeAll();
+
+        /** @var Context $context */
+        $context = GeneralUtility::makeInstance(Context::class);
+        $sysLanguageUid = $context->getPropertyFromAspect('language', 'id');
 
         /** @var QueryBuilder */
         $query = $queryBuilder
@@ -72,10 +78,13 @@ class EntrygroupRepository extends Repository
                     $queryBuilder->expr()->eq('tx_twglossary_domain_model_entrygroup.uid',
                     $queryBuilder->quoteIdentifier('entry.first_character')),
                     $queryBuilder->expr()->eq('entry.deleted', 0),
-                    $queryBuilder->expr()->eq('entry.hidden', 0)
+                    $queryBuilder->expr()->eq('entry.hidden', 0),
+                    $queryBuilder->expr()->eq('entry.sys_language_uid', $sysLanguageUid)
                 )
             )
             ->where('tx_twglossary_domain_model_entrygroup.deleted = 0')
+            ->orderBy('tx_twglossary_domain_model_entrygroup.sorting', 'ASC')
+            ->addOrderBy('tx_twglossary_domain_model_entrygroup.character', 'ASC')
             ->andWhere('tx_twglossary_domain_model_entrygroup.hidden = 0')
             ->groupBy('tx_twglossary_domain_model_entrygroup.uid');
 

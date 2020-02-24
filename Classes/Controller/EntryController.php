@@ -100,14 +100,12 @@ class EntryController extends ActionController
         if(!$this->settings['enableGrouping']){
             /** @var TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $entries */
             $entries = $this->entryRepository->findAll();
-            // Show first entry?
-            if(!$entry){
-                if(isset($this->settings['showFirstEntry']) && $entries->count()){
-                    $entry = $entries->getFirst();
-                    $entries->rewind();
-                }
-            }
         } else {
+
+            if(!empty($this->settings['showFirstGroup']) && !$filter && count($entrygroups)) {
+                $filter = $entrygroups[0]['uid'];
+            }
+
             if ($filter !== null) {
                 $entries = $this->entryRepository->findByFilter($filter);
             } else {
@@ -117,7 +115,22 @@ class EntryController extends ActionController
             }
         }
 
-
+        // Show first entry?
+        if(!$entry){
+            if(isset($this->settings['showFirstEntry'])){
+                if(count($entries)) {
+                    $entries->rewind();
+                    $entry = $entries->getFirst();
+                } elseif(count($sortedByEntrygroup)) {
+                    foreach($sortedByEntrygroup as $group => $groupEntries) {
+                        if(count($groupEntries)) {
+                            $entry = $groupEntries[0];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
 
         $this->view->assign('entries', $entries);
