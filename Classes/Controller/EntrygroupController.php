@@ -32,7 +32,6 @@
 
 namespace Tollwerk\TwGlossary\Controller;
 
-
 use Tollwerk\TwGlossary\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -54,12 +53,4 @@ class EntrygroupController extends ActionController
     {
         $this->entryRepository = $entryRepository;
     }
-
-
-
-
-
-
-
-
 }

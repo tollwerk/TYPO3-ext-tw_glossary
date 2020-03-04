@@ -33,13 +33,11 @@
 
 namespace Tollwerk\TwGlossary\Controller;
 
-use Tollwerk\TwGlossary\Domain\Model\Entry;
 use Tollwerk\TwGlossary\Domain\Model\EntryInterface;
 use Tollwerk\TwGlossary\Domain\Repository\EntrygroupRepository;
 use Tollwerk\TwGlossary\Domain\Repository\EntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * EntryController
@@ -93,16 +91,16 @@ class EntryController extends ActionController
     {
         $entrygroups         = $this->entrygroupRepository->findAllEntrygroups();
         $emptyFirstCharacter = $this->entryRepository->findAllByEmptyFirstCharacter();
-        $entries            = [];
-        $sortedByEntrygroup = [];
+        $entries             = [];
+        $sortedByEntrygroup  = [];
 
         // Get entries by group or as a simple list
-        if(!$this->settings['enableGrouping']){
+        if (!$this->settings['enableGrouping']) {
             /** @var TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $entries */
             $entries = $this->entryRepository->findAll();
         } else {
 
-            if(!empty($this->settings['showFirstGroup']) && !$filter && count($entrygroups)) {
+            if (!empty($this->settings['showFirstGroup']) && !$filter && count($entrygroups)) {
                 $filter = $entrygroups[0]['uid'];
             }
 
@@ -116,14 +114,14 @@ class EntryController extends ActionController
         }
 
         // Show first entry?
-        if(!$entry){
-            if(isset($this->settings['showFirstEntry'])){
-                if(count($entries)) {
+        if (!$entry) {
+            if (isset($this->settings['showFirstEntry'])) {
+                if (count($entries)) {
                     $entries->rewind();
                     $entry = $entries->getFirst();
-                } elseif(count($sortedByEntrygroup)) {
-                    foreach($sortedByEntrygroup as $group => $groupEntries) {
-                        if(count($groupEntries)) {
+                } elseif (count($sortedByEntrygroup)) {
+                    foreach ($sortedByEntrygroup as $group => $groupEntries) {
+                        if (count($groupEntries)) {
                             $entry = $groupEntries[0];
                             break;
                         }
