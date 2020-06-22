@@ -2,8 +2,7 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(
-    function()
-    {
+    function() {
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Tollwerk.TwGlossary',
@@ -40,7 +39,7 @@ call_user_func(
             'tw_glossary-plugin-glossary',
             \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
             ['source' => 'EXT:tw_glossary/Resources/Public/Icons/user_plugin_glossary.svg']
-         );
+        );
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:tw_glossary/Configuration/TypoScript/Main/TSconfig/page.t3s">');
     }

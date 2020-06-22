@@ -52,6 +52,13 @@ class Entrygroup extends AbstractEntity
     protected $character = '';
 
     /**
+     * Last modification timestamp
+     *
+     * @var int
+     */
+    protected $tstamp = 0;
+
+    /**
      * Returns the character
      *
      * @return string $Character
@@ -72,4 +79,23 @@ class Entrygroup extends AbstractEntity
         $this->character = $character;
     }
 
+    /**
+     * Return the last modification timestamp
+     *
+     * @return int Last modification timestamp
+     */
+    public function getTstamp(): int
+    {
+        return $this->tstamp;
+    }
+
+    /**
+     * Set the last  modification timestamp
+     *
+     * @param int $tstamp Last modification timestamp
+     */
+    public function setTstamp(int $tstamp): void
+    {
+        $this->tstamp = $tstamp;
+    }
 }

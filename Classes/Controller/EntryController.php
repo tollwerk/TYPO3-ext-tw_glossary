@@ -159,5 +159,6 @@ class EntryController extends ActionController
     public function sitemapAction(): void
     {
         $this->view->assign('entries', $this->entryRepository->findAll());
+        $this->view->assign('entrygroups', $this->entrygroupRepository->findAllEntrygroups());
     }
 }

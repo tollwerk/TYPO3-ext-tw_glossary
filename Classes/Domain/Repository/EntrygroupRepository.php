@@ -62,12 +62,13 @@ class EntrygroupRepository extends Repository
         $queryBuilder->getRestrictions()->removeAll();
 
         /** @var Context $context */
-        $context = GeneralUtility::makeInstance(Context::class);
+        $context        = GeneralUtility::makeInstance(Context::class);
         $sysLanguageUid = $context->getPropertyFromAspect('language', 'id');
 
         /** @var QueryBuilder */
         $query = $queryBuilder
-            ->select('tx_twglossary_domain_model_entrygroup.uid', 'tx_twglossary_domain_model_entrygroup.character')
+            ->select('tx_twglossary_domain_model_entrygroup.uid', 'tx_twglossary_domain_model_entrygroup.character',
+                'tx_twglossary_domain_model_entrygroup.tstamp')
             ->addSelectLiteral('COUNT(entry.uid) AS `countEntries`')
             ->from('tx_twglossary_domain_model_entrygroup')
             ->leftJoin(
@@ -76,7 +77,7 @@ class EntrygroupRepository extends Repository
                 'entry',
                 $queryBuilder->expr()->andX(
                     $queryBuilder->expr()->eq('tx_twglossary_domain_model_entrygroup.uid',
-                    $queryBuilder->quoteIdentifier('entry.first_character')),
+                        $queryBuilder->quoteIdentifier('entry.first_character')),
                     $queryBuilder->expr()->eq('entry.deleted', 0),
                     $queryBuilder->expr()->eq('entry.hidden', 0),
                     $queryBuilder->expr()->eq('entry.sys_language_uid', $sysLanguageUid)

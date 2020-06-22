@@ -32,7 +32,6 @@
 
 namespace Tollwerk\TwGlossary\Domain\Model;
 
-use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -46,7 +45,7 @@ class Entry extends AbstractEntity implements EntryInterface
 {
     /**
      * title
-     * 
+     *
      * @var string
      */
     protected $title = '';
@@ -58,35 +57,42 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * description
-     * 
+     *
      * @var string
      */
     protected $description = '';
 
     /**
      * image
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $image = null;
 
     /**
      * similarEntries
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Tollwerk\TwGlossary\Domain\Model\Entry>
      */
     protected $similarEntries;
 
     /**
      * firstCharacter
-     * 
+     *
      * @var string
      */
     protected $firstCharacter = '';
 
     /**
+     * Last modification timestamp
+     *
+     * @var int
+     */
+    protected $tstamp = 0;
+
+    /**
      * Returns the title
-     * 
+     *
      * @return string $title
      */
     public function getTitle(): string
@@ -96,8 +102,9 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Sets the title
-     * 
+     *
      * @param string $title
+     *
      * @return void
      */
     public function setTitle(string $title): void
@@ -123,7 +130,7 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Returns the description
-     * 
+     *
      * @return string $description
      */
     public function getDescription(): string
@@ -133,8 +140,9 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Sets the description
-     * 
+     *
      * @param string $description
+     *
      * @return void
      */
     public function setDescription(string $description): void
@@ -144,7 +152,7 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Returns the image
-     * 
+     *
      * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     public function getImage(): ?\TYPO3\CMS\Extbase\Domain\Model\FileReference
@@ -154,8 +162,9 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Sets the image
-     * 
+     *
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+     *
      * @return void
      */
     public function setImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $image): void
@@ -165,7 +174,7 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Returns the similarEntries
-     * 
+     *
      * @return ObjectStorage<\Tollwerk\TwGlossary\Domain\Model\Entry> $similarEntries
      */
     public function getSimilarEntries(): ObjectStorage
@@ -175,8 +184,9 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Sets the similarEntries
-     * 
+     *
      * @param ObjectStorage<\Tollwerk\TwGlossary\Domain\Model\Entry> $similarEntries
+     *
      * @return void
      */
     public function setSimilarEntries(Entry $similarEntries): void
@@ -186,7 +196,7 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Returns the firstCharacter
-     * 
+     *
      * @return string $firstCharacter
      */
     public function getFirstCharacter(): string
@@ -196,12 +206,33 @@ class Entry extends AbstractEntity implements EntryInterface
 
     /**
      * Sets the firstCharacter
-     * 
+     *
      * @param string $firstCharacter
+     *
      * @return void
      */
     public function setFirstCharacter(string $firstCharacter): void
     {
         $this->firstCharacter = $firstCharacter;
+    }
+
+    /**
+     * Return the last modification timestamp
+     *
+     * @return int Last modification timestamp
+     */
+    public function getTstamp(): int
+    {
+        return $this->tstamp;
+    }
+
+    /**
+     * Set the last  modification timestamp
+     *
+     * @param int $tstamp Last modification timestamp
+     */
+    public function setTstamp(int $tstamp): void
+    {
+        $this->tstamp = $tstamp;
     }
 }
